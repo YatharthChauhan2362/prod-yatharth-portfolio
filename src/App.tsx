@@ -82,6 +82,7 @@ const Container = styled.div<{ theme: Theme }>`
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
   padding: 2rem;
+  padding-bottom: 5rem;
   text-align: center;
   transition: background 0.3s, color 0.3s;
   position: relative;
@@ -91,6 +92,7 @@ const Container = styled.div<{ theme: Theme }>`
 
   @media (max-width: 768px) {
     padding: 1.5rem;
+    padding-bottom: 5rem;
     min-height: 100vh;
   }
 `;
@@ -159,10 +161,12 @@ const EmailLink = styled(motion.a)<{ theme: Theme }>`
   color: ${({ theme }) => theme.text};
   text-decoration: none;
   margin-top: 2rem;
+  margin-bottom: 1rem;
   font-size: 1.2rem;
   
   @media (max-width: 768px) {
     margin-top: 1rem;
+    margin-bottom: 1rem;
     font-size: 1rem;
   }
   
@@ -171,9 +175,9 @@ const EmailLink = styled(motion.a)<{ theme: Theme }>`
   }
 `;
 
-const AnimatedText = styled(motion.div)<{ theme: Theme }>`
+const AnimatedText = styled(motion.div)<{ theme: Theme; isDark: boolean }>`
   font-size: 1.2rem;
-  color: ${({ theme }) => theme.secondary};
+  color: ${({ isDark }) => isDark ? '#ffffff' : '#000000'};
   margin-top: 1rem;
 
   @media (max-width: 768px) {
@@ -218,8 +222,8 @@ const AppointmentButton = styled(motion.a)<{ theme: Theme }>`
   justify-content: center;
   padding: 1rem 2rem;
   margin-top: 0;
-  background: ${({ theme }) => theme.secondary};
-  color: ${({ theme }) => theme.background};
+  background: #000000;
+  color: #ffffff;
   border-radius: 50px;
   font-size: 1.2rem;
   font-weight: 600;
@@ -235,7 +239,8 @@ const AppointmentButton = styled(motion.a)<{ theme: Theme }>`
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    background: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.secondary};
+    color: #ffffff;
   }
 `;
 
@@ -296,6 +301,7 @@ const Footer = styled(motion.footer)<{ theme: Theme; isDark: boolean }>`
   backdrop-filter: blur(5px);
   z-index: 10;
   transition: all 0.3s ease;
+  margin-top: 2rem;
 
   &:hover {
     background: ${({ theme }) => theme.secondary}20;
@@ -438,6 +444,8 @@ const App = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           whileHover={{ scale: 1.05 }}
           theme={theme === 'dark' ? darkTheme : lightTheme}
+          onClick={() => window.open('https://linkedin.com/in/yatharth-chauhan', '_blank', 'noopener,noreferrer')}
+          style={{ cursor: 'pointer' }}
         />
 
         <Title
@@ -463,8 +471,9 @@ const App = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
           theme={theme === 'dark' ? darkTheme : lightTheme}
+          isDark={theme === 'dark'}
         >
-          {getGreeting()} 👋
+          {getGreeting()} Yatris 👋
         </AnimatedText>
 
         <ButtonContainer
@@ -523,6 +532,8 @@ Schedule a Meeting
           transition={{ delay: 2.2, duration: 0.8 }}
           whileHover={{ scale: 1.05 }}
           theme={theme === 'dark' ? darkTheme : lightTheme}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <MdEmail />
           contact@yatharthchauhan.me
