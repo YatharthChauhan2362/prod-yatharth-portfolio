@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { FaLinkedin, FaYoutube, FaMedium, FaInstagram, FaTwitter, FaGithub, FaWhatsapp, FaDiscord, FaSun, FaMoon } from 'react-icons/fa';
 import { SiLinktree } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
-import { BsSun, BsMoon } from 'react-icons/bs';
 
 interface Theme {
   background: string;
