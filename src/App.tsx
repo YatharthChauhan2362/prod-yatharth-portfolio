@@ -347,16 +347,16 @@ const App = () => {
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <Helmet>
         <title>Yatharth Chauhan - Let's Connect & Build Together</title>
-        <meta name="description" content="Connect with Yatharth Chauhan - Technology Innovator, Content Creator & Community Builder. Let's collaborate, learn, and grow together in the world of technology." />
+        <meta name="description" content="Connect with Yatharth Chauhan - Founder, YouTuber, Content Creator & Community Builder. Let's collaborate, learn, and grow together in the world of technology." />
         <meta name="keywords" content="Yatharth Chauhan, Technology, Innovation, Connect, Collaborate, Community, Growth, Tech Content, YouTube, LinkedIn" />
         <meta property="og:title" content="Yatharth Chauhan - Let's Connect & Build Together" />
-        <meta property="og:description" content="Connect with Yatharth Chauhan - Technology Innovator, Content Creator & Community Builder. Let's collaborate, learn, and grow together in the world of technology." />
+        <meta property="og:description" content="Connect with Yatharth Chauhan - Founder, YouTuber, Content Creator & Community Builder. Let's collaborate, learn, and grow together in the world of technology." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yatharthchauhan.me" />
         <meta property="og:image" content="https://raw.githubusercontent.com/YatharthChauhan2362/prod-public-images/refs/heads/main/yatharthchauhan.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Yatharth Chauhan - Let's Connect & Build Together" />
-        <meta name="twitter:description" content="Connect with Yatharth Chauhan - Technology Innovator, Content Creator & Community Builder. Let's collaborate, learn, and grow together in the world of technology." />
+        <meta name="twitter:description" content="Connect with Yatharth Chauhan - Founder, YouTuber, Content Creator & Community Builder. Let's collaborate, learn, and grow together in the world of technology." />
         <meta name="twitter:image" content="https://raw.githubusercontent.com/YatharthChauhan2362/prod-public-images/refs/heads/main/yatharthchauhan.jpg" />
         <link rel="canonical" href="https://yatharthchauhan.me" />
       </Helmet>
