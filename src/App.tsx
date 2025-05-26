@@ -283,6 +283,37 @@ const ProfileImage = styled(motion.img)<{ theme: Theme }>`
   }
 `;
 
+const Footer = styled(motion.footer)<{ theme: Theme; isDark: boolean }>`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  color: ${({ isDark }) => isDark ? '#a0a0a0' : '#666666'};
+  font-size: 0.9rem;
+  background: ${({ theme }) => theme.background}80;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${({ theme }) => theme.secondary}20;
+  }
+`;
+
+const FooterLink = styled.a<{ theme: Theme; isDark: boolean }>`
+  color: ${({ isDark }) => isDark ? '#a0a0a0' : '#666666'};
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.secondary};
+    text-decoration: underline;
+  }
+`;
+
 function getSystemTheme() {
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     return 'dark';
@@ -496,6 +527,35 @@ Schedule a Meeting
           <MdEmail />
           contact@yatharthchauhan.me
         </EmailLink>
+
+        <Footer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.5, duration: 0.8 }}
+          theme={theme === 'dark' ? darkTheme : lightTheme}
+          isDark={theme === 'dark'}
+        >
+          © 2025{' '}
+          <FooterLink
+            href="https://linkedin.com/in/yatharth-chauhan"
+            target="_blank"
+            rel="noopener noreferrer"
+            theme={theme === 'dark' ? darkTheme : lightTheme}
+            isDark={theme === 'dark'}
+          >
+            Yatharth Chauhan
+          </FooterLink>{' '}
+          | Designed by{' '}
+          <FooterLink
+            href="https://uimitra.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            theme={theme === 'dark' ? darkTheme : lightTheme}
+            isDark={theme === 'dark'}
+          >
+            Uimitra
+          </FooterLink>
+        </Footer>
       </Container>
     </ThemeProvider>
   );
