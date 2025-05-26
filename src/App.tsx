@@ -83,6 +83,10 @@ const Container = styled.div<{ theme: Theme }>`
   transition: background 0.3s, color 0.3s;
   position: relative;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const Title = styled(motion.h1)<{ theme: Theme }>`
@@ -92,18 +96,33 @@ const Title = styled(motion.h1)<{ theme: Theme }>`
   background: linear-gradient(45deg, ${({ theme }) => theme.text}, ${({ theme }) => theme.secondary});
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const Subtitle = styled(motion.p)<{ theme: Theme }>`
   font-size: 1.5rem;
   margin-bottom: 2rem;
   color: ${({ theme }) => theme.secondary};
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const SocialLinks = styled(motion.div)`
   display: flex;
   gap: 1.5rem;
   margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
 `;
 
 const SocialIcon = styled(motion.a)<{ theme: Theme }>`
@@ -125,6 +144,11 @@ const EmailLink = styled(motion.a)<{ theme: Theme }>`
   margin-top: 2rem;
   font-size: 1.2rem;
   
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  
   &:hover {
     color: ${({ theme }) => theme.secondary};
   }
@@ -134,6 +158,11 @@ const AnimatedText = styled(motion.div)<{ theme: Theme }>`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.secondary};
   margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
 `;
 
 const ThemeToggle = styled.button<{ theme: Theme }>`
@@ -161,8 +190,8 @@ const ButtonContainer = styled(motion.div)`
   margin: 2rem 0;
 
   @media (max-width: 768px) {
-    gap: 1rem;
-    margin: 1.5rem 0;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
   }
 `;
 
