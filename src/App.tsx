@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
-import { motion, useAnimation } from 'framer-motion';
-import { FaLinkedin, FaYoutube, FaMedium, FaInstagram, FaTwitter, FaUserCircle, FaSun, FaMoon, FaGithub, FaWhatsapp, FaDiscord } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaLinkedin, FaYoutube, FaMedium, FaInstagram, FaTwitter, FaGithub, FaWhatsapp, FaDiscord, FaSun, FaMoon } from 'react-icons/fa';
 import { SiLinktree } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
 import { BsSun, BsMoon } from 'react-icons/bs';
@@ -153,19 +153,6 @@ const ThemeToggle = styled.button<{ theme: Theme }>`
   }
 `;
 
-const ProfileLink = styled(motion.a)<{ theme: Theme }>`
-  color: ${({ theme }) => theme.secondary};
-  text-decoration: none;
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-  display: inline-block;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    color: ${({ theme }) => theme.text};
-  }
-`;
-
 const AppointmentButton = styled(motion.a)<{ theme: Theme }>`
   display: inline-flex;
   align-items: center;
@@ -246,7 +233,6 @@ const App = () => {
     const savedTheme = localStorage.getItem('theme');
     return (savedTheme as 'light' | 'dark') || 'dark';
   });
-  const controls = useAnimation();
 
   useEffect(() => {
     const stored = localStorage.getItem('theme');
