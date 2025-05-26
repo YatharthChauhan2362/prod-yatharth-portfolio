@@ -1,8 +1,6 @@
-# Architecture Documentation
+# Architecture Overview
 
-## Overview
-
-This project is a modern, responsive "Coming Soon" page built with React, TypeScript, and various modern web technologies. The architecture is designed to be maintainable, scalable, and performant.
+This project is a modern, responsive landing page built with React, TypeScript, and various modern web technologies. The architecture is designed to be maintainable, scalable, and performant.
 
 ## Tech Stack
 

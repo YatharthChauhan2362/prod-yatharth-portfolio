@@ -1,8 +1,8 @@
-# Yatharth Chauhan - Portfolio Coming Soon Page
+# Yatharth Chauhan - Let's Connect
 
 ![Portfolio Preview](https://raw.githubusercontent.com/YatharthChauhan2362/prod-public-images/refs/heads/main/yatharthchauhan.jpg)
 
-A modern, responsive "Coming Soon" page for Yatharth Chauhan's portfolio website. Built with React, TypeScript, and styled-components, featuring a sleek black and white theme with smooth animations and social media integration.
+A modern, responsive landing page for Yatharth Chauhan's digital presence. Built with React, TypeScript, and styled-components, featuring a sleek black and white theme with smooth animations and social media integration.
 
 ## 🌟 Features
 
