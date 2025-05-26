@@ -152,12 +152,26 @@ const ThemeToggle = styled.button<{ theme: Theme }>`
   }
 `;
 
+const ButtonContainer = styled(motion.div)`
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+`;
+
 const AppointmentButton = styled(motion.a)<{ theme: Theme }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
-  margin-top: 2rem;
+  margin-top: 0;
   background: ${({ theme }) => theme.secondary};
   color: ${({ theme }) => theme.background};
   border-radius: 50px;
@@ -166,6 +180,11 @@ const AppointmentButton = styled(motion.a)<{ theme: Theme }>`
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
   
   &:hover {
     transform: translateY(-2px);
@@ -179,7 +198,7 @@ const YouTubeButton = styled(motion.a)<{ theme: Theme }>`
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
-  margin-top: 2rem;
+  margin-top: 0;
   margin-left: 1rem;
   background: #FF0000;
   color: white;
@@ -190,19 +209,17 @@ const YouTubeButton = styled(motion.a)<{ theme: Theme }>`
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
   
+  @media (max-width: 768px) {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    margin-left: 0;
+  }
+  
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
     background: #cc0000;
   }
-`;
-
-const ButtonContainer = styled(motion.div)`
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
 `;
 
 const ProfileImage = styled(motion.img)<{ theme: Theme }>`
