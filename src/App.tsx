@@ -295,6 +295,13 @@ const App = () => {
     return (savedTheme as 'light' | 'dark') || 'dark';
   });
 
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good Morning";
+    if (hour < 18) return "Good Afternoon";
+    return "Good Evening";
+  };
+
   useEffect(() => {
     const stored = localStorage.getItem('theme');
     if (stored) {
@@ -401,7 +408,7 @@ const App = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
           theme={theme === 'dark' ? darkTheme : lightTheme}
         >
-          Portfolio Coming Soon
+          Let's Connect & Grow Together
         </Subtitle>
 
         <AnimatedText
@@ -410,7 +417,7 @@ const App = () => {
           transition={{ delay: 1, duration: 0.8 }}
           theme={theme === 'dark' ? darkTheme : lightTheme}
         >
-          Something amazing is in the works...
+          {getGreeting()} 👋🏻
         </AnimatedText>
 
         <ButtonContainer
