@@ -424,7 +424,7 @@ const App = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
           theme={theme === 'dark' ? darkTheme : lightTheme}
         >
-          Let's Connect & Grow Together
+          Let's Connect & Build Together
         </Subtitle>
 
         <AnimatedText
@@ -448,7 +448,7 @@ const App = () => {
             whileHover={{ scale: 1.05 }}
             theme={theme === 'dark' ? darkTheme : lightTheme}
           >
-            Book an Appointment
+            Let's Connect
           </AppointmentButton>
 
           <YouTubeButton
@@ -458,7 +458,7 @@ const App = () => {
             whileHover={{ scale: 1.05 }}
             theme={theme === 'dark' ? darkTheme : lightTheme}
           >
-            Subscribe to YouTube
+            Join Our Community
           </YouTubeButton>
         </ButtonContainer>
 
