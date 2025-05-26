@@ -448,7 +448,7 @@ const App = () => {
             whileHover={{ scale: 1.05 }}
             theme={theme === 'dark' ? darkTheme : lightTheme}
           >
-            Let's Connect
+Schedule a Meeting
           </AppointmentButton>
 
           <YouTubeButton
