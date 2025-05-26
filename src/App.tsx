@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { FaLinkedin, FaYoutube, FaMedium, FaInstagram, FaTwitter, FaGithub, FaWhatsapp, FaDiscord, FaSun, FaMoon } from 'react-icons/fa';
 import { SiLinktree } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
+import { Helmet } from 'react-helmet';
 
 interface Theme {
   background: string;
@@ -110,7 +111,7 @@ const Title = styled(motion.h1)<{ theme: Theme }>`
 
 const Subtitle = styled(motion.p)<{ theme: Theme }>`
   font-size: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.secondary};
 
   @media (max-width: 768px) {
@@ -199,7 +200,7 @@ const ThemeToggle = styled.button<{ theme: Theme }>`
 
 const ButtonContainer = styled(motion.div)`
   display: flex;
-  gap: 2rem;
+  gap: 1.00 rem;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -344,6 +345,20 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+      <Helmet>
+        <title>Yatharth Chauhan - Let's Connect & Grow Together</title>
+        <meta name="description" content="Connect with Yatharth Chauhan - Let's build the future of technology together. Book an appointment or subscribe to stay updated." />
+        <meta name="keywords" content="Yatharth Chauhan, Technology, Innovation, Connect, Growth, Portfolio" />
+        <meta property="og:title" content="Yatharth Chauhan - Let's Connect & Grow Together" />
+        <meta property="og:description" content="Connect with Yatharth Chauhan - Let's build the future of technology together. Book an appointment or subscribe to stay updated." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yatharthchauhan.me" />
+        <meta property="og:image" content="https://raw.githubusercontent.com/YatharthChauhan2362/prod-public-images/refs/heads/main/yatharthchauhan.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Yatharth Chauhan - Let's Connect & Grow Together" />
+        <meta name="twitter:description" content="Connect with Yatharth Chauhan - Let's build the future of technology together. Book an appointment or subscribe to stay updated." />
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/YatharthChauhan2362/prod-public-images/refs/heads/main/yatharthchauhan.jpg" />
+      </Helmet>
       <BackgroundContainer>
         {backgroundElements.map((element, index) => {
           const Component = element.type === 'circle' 
