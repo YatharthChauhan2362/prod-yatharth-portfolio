@@ -458,7 +458,7 @@ Schedule a Meeting
             whileHover={{ scale: 1.05 }}
             theme={theme === 'dark' ? darkTheme : lightTheme}
           >
-            Join Our Community
+            Subscribe to YouTube
           </YouTubeButton>
         </ButtonContainer>
 
