@@ -222,8 +222,8 @@ const AppointmentButton = styled(motion.a)<{ theme: Theme }>`
   justify-content: center;
   padding: 1rem 2rem;
   margin-top: 0;
-  background: #000000;
-  color: #ffffff;
+  background: ${({ theme }) => theme === darkTheme ? '#ffffff' : '#000000'};
+  color: ${({ theme }) => theme === darkTheme ? '#000000' : '#ffffff'};
   border-radius: 50px;
   font-size: 1.2rem;
   font-weight: 600;
