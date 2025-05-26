@@ -39,6 +39,8 @@ const BackgroundContainer = styled.div`
   background: ${({ theme }) => theme === 'dark' 
     ? 'linear-gradient(45deg, #000000, #1a1a1a)' 
     : 'linear-gradient(45deg, #ffffff, #f0f0f0)'};
+  margin: 0;
+  padding: 0;
 `;
 
 const AnimatedCircle = styled(motion.div)<{ theme: Theme }>`
@@ -83,9 +85,12 @@ const Container = styled.div<{ theme: Theme }>`
   transition: background 0.3s, color 0.3s;
   position: relative;
   z-index: 2;
+  margin: 0;
+  width: 100%;
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 1.5rem;
+    min-height: 100vh;
   }
 `;
 
@@ -118,10 +123,14 @@ const SocialLinks = styled(motion.div)`
   display: flex;
   gap: 1.5rem;
   margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 1rem;
 
   @media (max-width: 768px) {
-    gap: 1rem;
+    gap: 1.2rem;
     margin-top: 1rem;
+    padding: 0 0.5rem;
   }
 `;
 
@@ -129,6 +138,13 @@ const SocialIcon = styled(motion.a)<{ theme: Theme }>`
   color: ${({ theme }) => theme.text};
   font-size: 1.8rem;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
   
   &:hover {
     color: ${({ theme }) => theme.secondary};
