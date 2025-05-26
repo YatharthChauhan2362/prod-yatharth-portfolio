@@ -1,33 +1,31 @@
 import { useEffect, useState } from 'react';
+import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import { motion, useAnimation } from 'framer-motion';
-import styled from '@emotion/styled';
 import { FaLinkedin, FaYoutube, FaMedium, FaInstagram, FaTwitter, FaUserCircle, FaSun, FaMoon, FaGithub, FaWhatsapp, FaDiscord } from 'react-icons/fa';
 import { SiLinktree } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
+import { BsSun, BsMoon } from 'react-icons/bs';
 
-type CustomTheme = {
+interface Theme {
   background: string;
-  color: string;
-  accent: string;
-  icon: string;
-  iconHover: string;
+  text: string;
+  primary: string;
+  secondary: string;
+}
+
+const lightTheme: Theme = {
+  background: '#ffffff',
+  text: '#000000',
+  primary: '#007bff',
+  secondary: '#6c757d'
 };
 
-const lightTheme: CustomTheme = {
-  background: '#fff',
-  color: '#000',
-  accent: '#888',
-  icon: '#000',
-  iconHover: '#888',
-};
-
-const darkTheme: CustomTheme = {
-  background: '#000',
-  color: '#fff',
-  accent: '#888',
-  icon: '#fff',
-  iconHover: '#888',
+const darkTheme: Theme = {
+  background: '#121212',
+  text: '#ffffff',
+  primary: '#0d6efd',
+  secondary: '#6c757d'
 };
 
 const BackgroundContainer = styled.div`
@@ -44,43 +42,43 @@ const BackgroundContainer = styled.div`
     : 'linear-gradient(45deg, #ffffff, #f0f0f0)'};
 `;
 
-const AnimatedCircle = styled(motion.div)<{ theme: CustomTheme }>`
+const AnimatedCircle = styled(motion.div)<{ theme: Theme }>`
   position: absolute;
   border-radius: 50%;
-  background: ${({ theme }) => theme.accent};
+  background: ${({ theme }) => theme.secondary};
   opacity: 0.2;
   filter: blur(2px);
-  box-shadow: 0 0 20px ${({ theme }) => theme.accent};
+  box-shadow: 0 0 20px ${({ theme }) => theme.secondary};
 `;
 
-const AnimatedSquare = styled(motion.div)<{ theme: CustomTheme }>`
+const AnimatedSquare = styled(motion.div)<{ theme: Theme }>`
   position: absolute;
-  background: ${({ theme }) => theme.accent};
+  background: ${({ theme }) => theme.secondary};
   opacity: 0.2;
   filter: blur(2px);
-  box-shadow: 0 0 20px ${({ theme }) => theme.accent};
+  box-shadow: 0 0 20px ${({ theme }) => theme.secondary};
 `;
 
-const AnimatedTriangle = styled(motion.div)<{ theme: CustomTheme }>`
+const AnimatedTriangle = styled(motion.div)<{ theme: Theme }>`
   position: absolute;
   width: 0;
   height: 0;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 86.6px solid ${({ theme }) => theme.accent};
+  border-bottom: 86.6px solid ${({ theme }) => theme.secondary};
   opacity: 0.2;
   filter: blur(2px);
-  box-shadow: 0 0 20px ${({ theme }) => theme.accent};
+  box-shadow: 0 0 20px ${({ theme }) => theme.secondary};
 `;
 
-const Container = styled.div<{ theme: CustomTheme }>`
+const Container = styled.div<{ theme: Theme }>`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: ${({ theme }) => theme.background};
-  color: ${({ theme }) => theme.color};
+  color: ${({ theme }) => theme.text};
   padding: 2rem;
   text-align: center;
   transition: background 0.3s, color 0.3s;
@@ -88,19 +86,19 @@ const Container = styled.div<{ theme: CustomTheme }>`
   z-index: 2;
 `;
 
-const Title = styled(motion.h1)<{ theme: CustomTheme }>`
+const Title = styled(motion.h1)<{ theme: Theme }>`
   font-size: 4rem;
   margin-bottom: 1rem;
   font-weight: 700;
-  background: linear-gradient(45deg, ${({ theme }) => theme.color}, ${({ theme }) => theme.accent});
+  background: linear-gradient(45deg, ${({ theme }) => theme.text}, ${({ theme }) => theme.secondary});
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
 
-const Subtitle = styled(motion.p)<{ theme: CustomTheme }>`
+const Subtitle = styled(motion.p)<{ theme: Theme }>`
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  color: ${({ theme }) => theme.accent};
+  color: ${({ theme }) => theme.secondary};
 `;
 
 const SocialLinks = styled(motion.div)`
@@ -109,54 +107,54 @@ const SocialLinks = styled(motion.div)`
   margin-top: 2rem;
 `;
 
-const SocialIcon = styled(motion.a)<{ theme: CustomTheme }>`
-  color: ${({ theme }) => theme.icon};
+const SocialIcon = styled(motion.a)<{ theme: Theme }>`
+  color: ${({ theme }) => theme.text};
   font-size: 1.8rem;
   transition: color 0.3s ease;
   
   &:hover {
-    color: ${({ theme }) => theme.iconHover};
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 
-const EmailLink = styled(motion.a)<{ theme: CustomTheme }>`
+const EmailLink = styled(motion.a)<{ theme: Theme }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: ${({ theme }) => theme.icon};
+  color: ${({ theme }) => theme.text};
   text-decoration: none;
   margin-top: 2rem;
   font-size: 1.2rem;
   
   &:hover {
-    color: ${({ theme }) => theme.iconHover};
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 
-const AnimatedText = styled(motion.div)<{ theme: CustomTheme }>`
+const AnimatedText = styled(motion.div)<{ theme: Theme }>`
   font-size: 1.2rem;
-  color: ${({ theme }) => theme.accent};
+  color: ${({ theme }) => theme.secondary};
   margin-top: 1rem;
 `;
 
-const ThemeToggle = styled.button<{ theme: CustomTheme }>`
+const ThemeToggle = styled.button<{ theme: Theme }>`
   position: absolute;
   top: 2rem;
   right: 2rem;
   background: none;
   border: none;
-  color: ${({ theme }) => theme.icon};
+  color: ${({ theme }) => theme.text};
   font-size: 2rem;
   cursor: pointer;
   transition: color 0.3s;
   z-index: 10;
   &:hover {
-    color: ${({ theme }) => theme.iconHover};
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 
-const ProfileLink = styled(motion.a)<{ theme: CustomTheme }>`
-  color: ${({ theme }) => theme.accent};
+const ProfileLink = styled(motion.a)<{ theme: Theme }>`
+  color: ${({ theme }) => theme.secondary};
   text-decoration: none;
   font-size: 1.2rem;
   margin-top: 0.5rem;
@@ -164,17 +162,17 @@ const ProfileLink = styled(motion.a)<{ theme: CustomTheme }>`
   transition: color 0.3s ease;
   
   &:hover {
-    color: ${({ theme }) => theme.icon};
+    color: ${({ theme }) => theme.text};
   }
 `;
 
-const AppointmentButton = styled(motion.a)<{ theme: CustomTheme }>`
+const AppointmentButton = styled(motion.a)<{ theme: Theme }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
   margin-top: 2rem;
-  background: ${({ theme }) => theme.accent};
+  background: ${({ theme }) => theme.secondary};
   color: ${({ theme }) => theme.background};
   border-radius: 50px;
   font-size: 1.2rem;
@@ -186,11 +184,11 @@ const AppointmentButton = styled(motion.a)<{ theme: CustomTheme }>`
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    background: ${({ theme }) => theme.icon};
+    background: ${({ theme }) => theme.text};
   }
 `;
 
-const YouTubeButton = styled(motion.a)<{ theme: CustomTheme }>`
+const YouTubeButton = styled(motion.a)<{ theme: Theme }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -221,19 +219,18 @@ const ButtonContainer = styled(motion.div)`
   flex-wrap: wrap;
 `;
 
-const ProfileImage = styled(motion.img)`
+const ProfileImage = styled(motion.img)<{ theme: Theme }>`
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  object-fit: cover;
   margin-bottom: 2rem;
-  border: 3px solid ${({ theme }) => theme.accent};
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 3px solid ${props => props.theme.text};
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -244,14 +241,17 @@ function getSystemTheme() {
   return 'light';
 }
 
-function App() {
-  const [theme, setTheme] = useState('dark');
+const App = () => {
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return (savedTheme as 'light' | 'dark') || 'dark';
+  });
   const controls = useAnimation();
 
   useEffect(() => {
     const stored = localStorage.getItem('theme');
     if (stored) {
-      setTheme(stored);
+      setTheme(stored as 'light' | 'dark');
     } else {
       setTheme(getSystemTheme());
     }
